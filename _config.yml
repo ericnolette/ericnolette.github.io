@@ -1,7 +1,3 @@
-theme: minima
-<<<<<<< HEAD
+theme: jekyll-theme-minimal
 title: Github-hosted website
-=======
-title: Github-hosted site
->>>>>>> 66cbcaa0494316116f12ed4e3c7cf646fe8ca71a
 description: testing some things out
