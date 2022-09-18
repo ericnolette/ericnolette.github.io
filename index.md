@@ -1,4 +1,4 @@
-Testing some things out - the data machine
+The data machine
 =====================================
 **`code block`**
 `import data from ...`
