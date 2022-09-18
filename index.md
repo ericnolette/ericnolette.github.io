@@ -1,4 +1,4 @@
-The data machine
+Data
 =====================================
 **`code block`**
 `import data from ...`
