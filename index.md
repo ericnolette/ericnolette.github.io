@@ -1,4 +1,4 @@
-<ins>Data Notes</ins>
+<u>Data Notes</u>
 =====================================
 **`code block`**
 `import data from ...`
