@@ -1,4 +1,4 @@
-Data Notes
+Notes
 =====================================
 **`code block`**
 `import data from ...`
