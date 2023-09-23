@@ -1,4 +1,4 @@
-The Data Machine
+OpenAlpha | datamachine
 =====================================
 **`code block`**
 `import data from...`
