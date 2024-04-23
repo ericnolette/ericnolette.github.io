@@ -1,4 +1,4 @@
-**`code block`**
+<!-- **`code block`**
 `import data from....`
 
 <html lang="en">
@@ -51,7 +51,7 @@
   setInterval(animateRows, 200); // Adjust the interval for speed
 </script>
 </body>
-</html>
+</html> -->
 
 <html lang="en">
 <head>
