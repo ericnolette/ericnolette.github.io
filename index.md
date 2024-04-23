@@ -26,6 +26,7 @@
   }
   .blink {
     animation: blink 1s infinite;
+    color: ff9933
   }
   pre {
     font-family: monospace;
