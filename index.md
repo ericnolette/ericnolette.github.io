@@ -36,6 +36,7 @@
     display: inline-block; /* Make the pre tag size to its content */
     color: #2e37ed; /* Set the text color to iridescent blue */
     background-color: #ffffff;
+    border: none; /* Add a border */
     text-align: left; /* Center the text horizontally */
   }
   .second-output {
