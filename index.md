@@ -6,8 +6,8 @@
 <style>
   .container {
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    justify-content: left; /* Center the content horizontally */
+    align-items: left; /* Center the content vertically */
     height: 100vh; /* Use the full viewport height */
   }
   .ascii-animation {
