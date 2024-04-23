@@ -4,7 +4,6 @@ layout: page
 title: About
 ---
 
-<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -20,50 +19,23 @@ title: About
       animation: flow 1s infinite linear;
       padding: 5px; /* Add padding for spacing */
     }
-
-    table {
-      border-collapse: collapse; /* Remove border spacing */
-    }
-
-    td {
-      border: none; /* Remove cell borders */
-    }
   </style>
 </head>
 <body>
   <div style="font-family: monospace;">
-    <table>
-      <tr>
-        <td>Process A</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-      </tr>
-      <tr>
-        <td>Process B</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-      </tr>
-      <tr>
-        <td>Process C</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-      </tr>
-      <tr>
-        <td>Process D</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-      </tr>
-      <tr>
-        <td>Process E</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-        <td class="green-status">▊</td>
-      </tr>
-    </table>
+    <pre>
+      _____       __  __             
+     / ___/____ _/ /_/ /_  ___  _____
+     \__ \/ __ `/ __/ __ \/ _ \/ ___/
+    ___/ / /_/ / /_/ / / /  __/ /    
+   /____/\__,_/\__/_/ /_/\___/_/     
+                                   
+      <span class="green-status">▊</span><span class="green-status">▊</span><span class="green-status">▊</span>
+      <span class="green-status">▊</span><span class="green-status">▊</span><span class="green-status">▊</span>
+      <span class="green-status">▊</span><span class="green-status">▊</span><span class="green-status">▊</span>
+      <span class="green-status">▊</span><span class="green-status">▊</span><span class="green-status">▊</span>
+      <span class="green-status">▊</span><span class="green-status">▊</span><span class="green-status">▊</span>
+    </pre>
   </div>
 </body>
 </html>
