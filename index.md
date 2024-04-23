@@ -5,8 +5,10 @@
 <title>ASCII Animation</title>
 <style>
   .container {
-    display: flex; /* Use flexbox for layout */
-    /* justify-content: space-between; */ /* Remove this line to place elements next to each other */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    height: 100vh; /* Use the full viewport height */
   }
   .ascii-animation {
     font-family: monospace;
@@ -29,7 +31,7 @@
     font-family: monospace;
     font-size: 11px; /* Adjust the font size */
     line-height: 1.2; /* Adjust the line height */
-    padding: 10px; /* Add some padding inside the border */
+    padding: 0px; /* Add some padding inside the border */
     display: inline-block; /* Make the pre tag size to its content */
     color: #2e37ed; /* Set the text color to iridescent blue */
   }
