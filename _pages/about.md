@@ -4,8 +4,6 @@ layout: page
 title: About
 ---
 
-```html
-<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -14,7 +12,8 @@ title: About
       100% { background-position: 20px 0; }
     }
 
-    td {
+    .green-status {
+      color: #00FF00;
       background-image: linear-gradient(90deg, rgba(255,255,255,0) 50%, rgba(255,255,255,0.5) 50%);
       background-size: 20px 20px;
       animation: flow 1s infinite linear;
@@ -26,23 +25,23 @@ title: About
     <table>
       <tr>
         <td>Process A</td>
-        <td style="color: #00FF00;">▊</td>
+        <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process B</td>
-        <td style="color: #00FF00;">▊</td>
+        <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process C</td>
-        <td style="color: #00FF00;">▊</td>
+        <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process D</td>
-        <td style="color: #00FF00;">▊</td>
+        <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process E</td>
-        <td style="color: #00FF00;">▊</td>
+        <td class="green-status">▊</td>
       </tr>
     </table>
   </div>
