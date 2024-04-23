@@ -40,7 +40,7 @@
     text-align: left; /* Center the text horizontally */
   }
   .second-output {
-    margin-top: 5px; /* Move the second output down by 2px */
+    margin-top: 4px; /* Move the second output down by 2px */
   }
 </style>
 </head>
