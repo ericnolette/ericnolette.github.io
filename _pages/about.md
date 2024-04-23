@@ -18,6 +18,15 @@ title: About
       background-image: linear-gradient(90deg, rgba(255,255,255,0) 50%, rgba(255,255,255,0.5) 50%);
       background-size: 20px 20px;
       animation: flow 1s infinite linear;
+      padding: 5px; /* Add padding for spacing */
+    }
+
+    table {
+      border-collapse: collapse; /* Remove border spacing */
+    }
+
+    td {
+      border: none; /* Remove cell borders */
     }
   </style>
 </head>
@@ -58,3 +67,4 @@ title: About
   </div>
 </body>
 </html>
+
