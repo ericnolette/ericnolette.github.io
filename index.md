@@ -34,6 +34,8 @@
     padding: 0px; /* Add some padding inside the border */
     display: inline-block; /* Make the pre tag size to its content */
     color: #2e37ed; /* Set the text color to iridescent blue */
+    text-align: center; /* Center the text horizontally */
+
   }
   .second-output {
     margin-top: 13px; /* Move the second output down by 2px */
@@ -44,16 +46,16 @@
 <div class="container">
   <div>
     <pre>
-      ┌───────────────────┐
-      │               ─ x │
-      ├───────────────────┤
-      │                   │
-      │ -> STATUS         │
-      │ ONLINE            │
-      │ DATAMACHINE-001-1 │
-      │                   │
-      │ -> <span class="blink">▉</span>              │
-      └───────────────────┘
+  ┌───────────────────┐
+  │               ─ x │
+  ├───────────────────┤
+  │                   │
+  │ -> STATUS         │
+  │ ONLINE            │
+  │ DATAMACHINE-001-1 │
+  │                   │
+  │ -> <span class="blink">▉</span>              │
+  └───────────────────┘
     </pre>
   </div>
   <div class="ascii-animation second-output" id="ascii-animation">
