@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -27,15 +28,14 @@
   }
   pre {
     font-family: monospace;
-    margin:0;
     font-size: 11px; /* Adjust the font size */
     line-height: 1.2; /* Adjust the line height */
-    padding: 10px; /* Add some padding inside the border */
+    padding: 0px; /* Add some padding inside the border */
     display: inline-block; /* Make the pre tag size to its content */
     color: #2e37ed; /* Set the text color to iridescent blue */
   }
   .second-output {
-    margin-top: 6px; /* Move the second output down by 2px */
+    margin-top: 13px; /* Move the second output down by 2px */
   }
 </style>
 </head>
@@ -66,8 +66,7 @@
     <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
     <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
     <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-    <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-    
+
   </div>
 </div>
 <script>
