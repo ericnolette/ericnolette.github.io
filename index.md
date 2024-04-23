@@ -35,6 +35,7 @@
     padding: 0px; /* Add some padding inside the border */
     display: inline-block; /* Make the pre tag size to its content */
     color: #2e37ed; /* Set the text color to iridescent blue */
+    background-color: #ffffff;
     text-align: left; /* Center the text horizontally */
   }
   .second-output {
