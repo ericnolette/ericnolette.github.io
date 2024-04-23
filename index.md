@@ -13,23 +13,23 @@
     line-height: 6px; /* Adjust the line height */
     white-space: pre;
   }
-  .green {
+  .white {
     color: #FFFFFF;
   }
 </style>
 </head>
 <body>
 <div class="ascii-animation" id="ascii-animation">
-  <span>▊▊▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕</span>▊▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕</span>▊▊⎕⎕⎕⎕</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊ <span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
-  <span>▊▊▊▊▊▊▊▊▊▊<span class="green">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕</span>▊▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕</span>▊▊⎕⎕⎕⎕</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊ <span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
+  <span>▊▊▊▊▊▊▊▊▊▊<span class="white">⎕⎕⎕⎕⎕⎕⎕⎕</span>▊▊▊▊</span><br>
   
 </div>
 
@@ -41,7 +41,7 @@
     rows.forEach((row, rowIndex) => {
       let content = '';
       for (let i = 0; i < row.textContent.length; i++) {
-        content += (i === indices[rowIndex]) ? '<span class="green">⎕</span>' : '▊';
+        content += (i === indices[rowIndex]) ? '<span class="white">⎕</span>' : '▊';
       }
       row.innerHTML = content;
     });
