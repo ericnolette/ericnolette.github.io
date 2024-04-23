@@ -4,6 +4,7 @@ layout: page
 title: About
 ---
 
+<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -26,21 +27,31 @@ title: About
       <tr>
         <td>Process A</td>
         <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process B</td>
+        <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
         <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process C</td>
         <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process D</td>
         <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
       </tr>
       <tr>
         <td>Process E</td>
+        <td class="green-status">▊</td>
+        <td class="green-status">▊</td>
         <td class="green-status">▊</td>
       </tr>
     </table>
