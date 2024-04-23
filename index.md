@@ -26,13 +26,13 @@
   }
   .blink {
     animation: blink 1s infinite;
-    color: ff9933
+    color: #ff9933;
   }
   pre {
     font-family: monospace;
     font-size: 11px; /* Adjust the font size */
     line-height: 1.2; /* Adjust the line height */
-    padding: 2px; /* Add some padding inside the border */
+    padding: 0px; /* Add some padding inside the border */
     display: inline-block; /* Make the pre tag size to its content */
     color: #2e37ed; /* Set the text color to iridescent blue */
     text-align: left; /* Center the text horizontally */
