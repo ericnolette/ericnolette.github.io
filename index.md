@@ -53,7 +53,7 @@
   ├───────────────────┤
   │                   │
   │ -> STATUS         │
-  │ ONLINE            │
+  │ <span style="color: #48d597;">ONLINE</span>            │
   │ DATAMACHINE-001-1 │
   │                   │
   │ -> <span class="blink">▉</span>              │
