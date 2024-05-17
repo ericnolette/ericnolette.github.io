@@ -12,7 +12,7 @@
     justify-content: center; /* Center the content horizontally */
     align-items: left; /* Center the content vertically */
     height: 100vh; /* Use the full viewport height */
-    margin-right: 40px
+    margin-right: 55px
   }
   .ascii-animation {
     font-family: monospace;

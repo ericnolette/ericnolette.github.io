@@ -15,7 +15,7 @@
     border-bottom: 0px ;
     min-height: 55.95px;
     position: relative;
-    }
+  }
   header {
     background: #ffffff;
     font-family: 'DM Mono', sans-serif;
@@ -32,7 +32,7 @@
   }
   .time-date {
     font-size: 1.0rem; /* Reduced font size */
-    color:darkgray;
+    color: darkgray;
     font-family: 'Open Sans', sans-serif;
     display: flex;
     align-items: center;
@@ -74,6 +74,10 @@
   <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
   <div class="time-date">
     <span id="time"></span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+    <span id="minutes"></span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+    <span id="seconds"></span>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <span id="date"></span>
   </div>
@@ -104,11 +108,14 @@
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
     const month = now.getMonth() + 1;
     const day = now.getDate();
     const year = String(now.getFullYear()).slice(-2);
 
-    document.getElementById('time').innerHTML = `${hours}<span class="colon">:</span>${minutes}`;
+    document.getElementById('time').innerHTML = hours;
+    document.getElementById('minutes').innerHTML = minutes;
+    document.getElementById('seconds').innerHTML = seconds;
     document.getElementById('date').textContent = `${month} ${day} ${year}`;
   }
 
