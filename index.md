@@ -8,7 +8,7 @@
     background-color: #FFFFFF; /* Set the background color to black */
   }
   .container {
-    display: flex;
+    position: absolute;
     height: 100vh; /* Use the full viewport height */
     top: 50%;
     left: 50%;
