@@ -6,14 +6,12 @@
 <style>
   body {
     background-color: #FFFFFF; /* Set the background color to black */
-    color: #000000; /* Set the default text color to white */
   }
   .container {
     display: flex;
     justify-content: left; /* Center the content horizontally */
     align-items: left; /* Center the content vertically */
     height: 100vh; /* Use the full viewport height */
-    background-color: #000000; /* Set the background color to black */
   }
   .ascii-animation {
     font-family: monospace;
