@@ -9,9 +9,10 @@
   }
   .container {
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
     height: 100vh; /* Use the full viewport height */
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
   .ascii-animation {
     font-family: monospace;
