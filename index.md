@@ -10,7 +10,7 @@
   .container {
     position: absolute;
     height: 100vh; /* Use the full viewport height */
-    top: 50%;
+    top: 75%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
   }
