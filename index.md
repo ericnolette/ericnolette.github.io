@@ -8,11 +8,10 @@
     background-color: #FFFFFF; /* Set the background color to black */
   }
   .container {
-    position: absolute;
+    display: flex;
+    justify-content: left; /* Center the content horizontally */
+    align-items: left; /* Center the content vertically */
     height: 100vh; /* Use the full viewport height */
-    top: 75%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
   }
   .ascii-animation {
     font-family: monospace;
