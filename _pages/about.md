@@ -123,6 +123,6 @@ margin-top:30px;
 
 <div class="dm-copy">
 <p>
-I build systems that ingest fragmented external datasets, normalize them into durable research tables, and keep the useful parts moving.
+
 </p>
 </div>
