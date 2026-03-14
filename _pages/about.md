@@ -18,6 +18,7 @@ margin-bottom:16px;
 }
 
 .dm-wrap{
+display:inline-block;
 overflow-x:auto;
 }
 
@@ -27,6 +28,12 @@ font-size:14px;
 line-height:1.05;
 white-space:pre;
 margin:0;
+
+background:transparent !important;
+border:none !important;
+box-shadow:none !important;
+padding:0 !important;
+
 color:#b8bbbc;
 }
 
@@ -117,12 +124,12 @@ margin-top:30px;
 
 </div>
 
-<div class="dm-sub">external data, reduced to signal</div>
+<div class="dm-sub">external data → structured signal</div>
 
 </div>
 
 <div class="dm-copy">
 <p>
-
+I build systems that ingest fragmented external datasets, normalize them into durable research tables, and keep the useful parts moving.
 </p>
 </div>
