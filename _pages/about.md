@@ -5,20 +5,21 @@ title: About
 ---
 
 <style>
-.dm-hero {
+  animation: blink 1.2s steps(2, end) infinite;
+  color: #ff2222;
   margin: 48px 0 32px;
 }
-
-.dm-caption {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 12px;
-  color: #7a7f85;
-  margin-bottom: 16px;
-}
-
-.dm-wrap {
-  display: inline-block;
-  overflow-x: auto;
+@keyframes blink {
+  0%, 49% {
+    color: #ff2222;
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 34, 34, .5);
+  }
+  50%, 100% {
+    color: #fff;
+    opacity: .55;
+    text-shadow: none;
+  }
 }
 
 .dm-ascii {
