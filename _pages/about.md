@@ -1,7 +1,7 @@
 ---
 permalink: /about
 layout: page
-title: About
+title: About this site
 ---
 
 <style>
