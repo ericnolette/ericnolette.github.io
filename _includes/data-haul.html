@@ -1,0 +1,243 @@
+<style>
+.dh-fig{margin:40px 0 24px;}
+.dh-caption,.dh-readout{
+font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+font-size:12px;
+color:#7a7f85;
+}
+.dh-caption{margin-bottom:16px;}
+.dh-readout{margin-top:14px;}
+.dh-readout .kb{color:#48D597;}
+.dh-wrap{display:inline-block;max-width:100%;overflow-x:auto;}
+.dh-ascii{
+font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+font-size:14px;
+line-height:1.05;
+white-space:pre;
+margin:0;
+background:transparent !important;
+border:none !important;
+box-shadow:none !important;
+padding:0 !important;
+color:#5B5F61;
+}
+.dh-ascii .gd,.dh-ascii .lb{color:#A1A4A5;}
+.dh-ascii .mc{color:#5B5F61;}
+.dh-ascii .am{color:#2F5E99;}
+.dh-ascii .jt,.dh-ascii .bk{color:#5DA9FF;}
+.dh-ascii .bt{color:#48D597;}
+.dh-ascii .st{color:#ff4d5a;}
+.dh-ascii .sd{color:#7a2028;opacity:.55;}
+</style>
+
+<div class="dh-fig">
+<div class="dh-caption">Fig 0. Data Haul &mdash; dig, load, ship</div>
+<div class="dh-wrap">
+<pre class="dh-ascii" id="dh-ascii" aria-label="Animated ASCII excavator loading data into a haul truck">
+
+                                 o
+                                / \\\\
+                               /      \\\\
+                              /           \\\\
+                            //                \\ /
+                           /
+                         //           |       0001       |
+                        o             |       10         |
+                      .--.            |                  | ____
+                ______|[]|______      |__________________||  []\
+    0100       |  DIG-01  ::::  |     | DATA  EXPRESS -&gt; ||_____\__
+   111100      |________________|     |__________________|________|
+  10111111     (@@@@@@@@@@@@@@@@)        (O)  (O)            (O)
+========================================================================</pre>
+</div>
+<div class="dh-readout" id="dh-readout">&nbsp;</div>
+</div>
+
+<script>
+(function(){
+  var el = document.getElementById('dh-ascii');
+  var out = document.getElementById('dh-readout');
+  if (!el) return;
+
+  // grid + arm geometry (monospace cells are ~1.75x taller than wide)
+  var W = 72, H = 16, GROUND = 15, ASP = 1.75;
+  var PIV = [24, 9], L1 = 15, L2 = 16;
+  var TRUCK_HOME = 38, OFF = W + 4, LOADS = 3;
+
+  var EXC = [
+    '        .--.        ',
+    '  ______|[]|______  ',
+    ' |                | ',
+    ' |________________| ',
+    ' (@@@@@@@@@@@@@@@@) '
+  ];
+  var TRUCK = [
+    '|                  |',
+    '|                  |',
+    '|                  | ____',
+    '|__________________||  []\\',
+    '|                  ||_____\\__',
+    '|__________________|________|',
+    '   (O)  (O)            (O)  '
+  ];
+  var PILE = [[4, 4], [3, 6], [2, 8]]; // [x, width], top row first, rows 12..14
+
+  // arm poses as [reach, row]; the cab swings between the pile (-1) and the truck (+1)
+  var DIG = [17, 13], UP = [14, 4], DUMP = [24, 6];
+
+  function bits(n){ var s = ''; for (var i = 0; i < n; i++) s += Math.random() < 0.5 ? '0' : '1'; return s; }
+  function bit(){ return Math.random() < 0.5 ? '0' : '1'; }
+  function ease(x){ return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+
+  var pile, fill, truckX, cargo, falling, inbound, load, shipped = 0;
+  var phase, pt, dur, arm, swing, a0, a1, s0, s1, clock = 0;
+
+  function go(p, pose, sw, d){
+    phase = p; pt = 0; dur = d;
+    a0 = arm.slice(); a1 = (pose || arm).slice();
+    s0 = swing; s1 = sw == null ? swing : sw;
+  }
+  function init(){
+    pile = PILE.map(function(r){ return bits(r[1]); });
+    fill = []; truckX = TRUCK_HOME; cargo = ''; falling = []; inbound = []; load = 0;
+    arm = UP.slice(); swing = -1;
+    go('reach', DIG, -1, 1.0);
+  }
+
+  function next(){
+    switch (phase){
+      case 'reach': go('scoop', null, null, 0.45); break;
+      case 'scoop':
+        for (var i = 0; i < pile.length; i++) if (pile[i]) { pile[i] = ''; break; }
+        cargo = bits(3); go('lift', UP, -1, 0.7); break;
+      case 'lift': go('swing', DUMP, 1, 1.1); break;
+      case 'swing':
+        var t = tipXY(); cargo = '';
+        for (var k = 0; k < 6; k++) falling.push({ x: t[0] - 2 + k % 4, y: t[1] + 1 + (k > 3 ? 0.6 : 0), v: 0, c: bit() });
+        go('dump', null, null, 0.7); break;
+      case 'dump': fill.push(bits(18)); load++; go('back', UP, -1, 1.1); break;
+      case 'back':
+        if (load >= LOADS) go('depart', null, null, 3.0); else go('reach', DIG, -1, 0.9);
+        break;
+      case 'depart': shipped++; go('away', null, null, 1.2); break;
+      case 'away': fill = []; load = 0; go('return', null, null, 2.6); break;
+      case 'return': go('reach', DIG, -1, 0.9); break;
+    }
+  }
+
+  function step(dt){
+    pt += dt; clock += dt;
+    var k = Math.min(pt / dur, 1), e = ease(k);
+    arm = [a0[0] + (a1[0] - a0[0]) * e, a0[1] + (a1[1] - a0[1]) * e];
+    swing = s0 + (s1 - s0) * e;
+    if (phase === 'depart') truckX = TRUCK_HOME + (OFF - TRUCK_HOME) * k * k;
+    if (phase === 'away') truckX = OFF;
+    if (phase === 'return') truckX = OFF - (OFF - TRUCK_HOME) * e;
+
+    falling = falling.filter(function(f){ f.v += 30 * dt; f.y += f.v * dt; return f.y < 10 - fill.length; });
+
+    // fresh data rains back onto the pile while the truck is out
+    if ((phase === 'depart' || phase === 'away' || phase === 'return') && Math.random() < dt * 16) {
+      for (var i = pile.length - 1; i >= 0; i--) if (!pile[i]) {
+        inbound.push({ x: PILE[i][0] + Math.floor(Math.random() * PILE[i][1]), y: 0, row: i, v: 0, c: bit() });
+        break;
+      }
+    }
+    inbound = inbound.filter(function(b){
+      b.v += 30 * dt; b.y += b.v * dt;
+      if (b.y < 12 + b.row) return true;
+      if (!pile[b.row]) pile[b.row] = bits(PILE[b.row][1]);
+      return false;
+    });
+    if (pt >= dur) next();
+  }
+
+  // two-link arm solved in its own plane, then squashed by the swing
+  function elbowRY(){
+    var dx = arm[0], dy = (arm[1] - PIV[1]) * ASP;
+    var d = Math.min(Math.sqrt(dx * dx + dy * dy), L1 + L2 - 0.01);
+    var a = Math.atan2(dy, dx) - Math.acos((L1 * L1 + d * d - L2 * L2) / (2 * L1 * d));
+    return [Math.cos(a) * L1, PIV[1] + Math.sin(a) * L1 / ASP];
+  }
+  function tipXY(){ return [PIV[0] + swing * arm[0], arm[1]]; }
+
+  var ch, cl;
+  function put(x, y, c, k){
+    x = Math.round(x); y = Math.round(y);
+    if (x < 0 || y < 0 || x >= W || y >= H) return;
+    ch[y][x] = c; cl[y][x] = k || '';
+  }
+  function text(x, y, s, k){ for (var i = 0; i < s.length; i++) if (s[i] !== ' ') put(x + i, y, s[i], k); }
+  function rod(p, q, k){
+    var dx = q[0] - p[0], dy = q[1] - p[1];
+    var c = Math.abs(dx) < Math.abs(dy) * 0.5 ? '|'
+          : Math.abs(dy) < Math.abs(dx) * 0.25 ? '-'
+          : (dx * dy > 0 ? '\\' : '/');
+    var n = Math.ceil(Math.max(Math.abs(dx), Math.abs(dy)));
+    for (var i = 1; i < n; i++) put(p[0] + dx * i / n, p[1] + dy * i / n, c, k);
+  }
+
+  function render(){
+    ch = []; cl = [];
+    for (var y = 0; y < H; y++){ ch.push(new Array(W).fill(' ')); cl.push(new Array(W).fill('')); }
+    for (var x = 0; x < W; x++) put(x, GROUND, '=', 'gd');
+
+    pile.forEach(function(s, i){ if (s) text(PILE[i][0], 12 + i, s, 'bt'); });
+    inbound.forEach(function(b){ put(b.x, b.y, b.c, 'bt'); });
+
+    var tx = Math.round(truckX), moving = truckX !== TRUCK_HOME;
+    TRUCK.forEach(function(r, i){
+      if (i === 6 && moving && tx % 2) r = r.replace(/O/g, 'o');
+      text(tx, 8 + i, r, 'mc');
+    });
+    text(tx + 2, 12, 'DATA  EXPRESS ->', 'lb');
+    fill.forEach(function(s, i){ text(tx + 1, 10 - i, s, 'bt'); });
+    if (fill.length >= LOADS) text(tx + 6, 7, '[ FULL ]', Math.floor(clock * 2) % 2 ? 'sd' : 'st');
+    falling.forEach(function(f){ put(f.x, f.y, f.c, 'bt'); });
+
+    EXC.forEach(function(r, i){ text(14, 10 + i, r, 'mc'); });
+    text(18, 12, 'DIG-01', 'lb'); text(26, 12, '::::', 'lb');
+
+    var e = elbowRY(), ep = [PIV[0] + swing * e[0], e[1]], tp = tipXY();
+    rod(PIV, ep, 'am'); rod(ep, tp, 'am');
+    put(PIV[0], PIV[1], 'o', 'jt'); put(ep[0], ep[1], 'o', 'jt');
+    var bx = Math.round(tp[0]), by = Math.round(tp[1]);
+    text(bx - 1, by, phase === 'dump' ? '\\ /' : '\\_/', 'bk');
+    if (cargo) text(bx - 1, by - 1, cargo, 'bt');
+
+    var html = '';
+    for (var yy = 0; yy < H; yy++){
+      var cur = null, run = '';
+      for (var xx = 0; xx < W; xx++){
+        if (cl[yy][xx] !== cur){
+          if (run) html += cur ? '<span class="' + cur + '">' + run + '</span>' : run;
+          cur = cl[yy][xx]; run = '';
+        }
+        var c = ch[yy][xx];
+        run += c === '<' ? '&lt;' : c === '>' ? '&gt;' : c === '&' ? '&amp;' : c;
+      }
+      if (run) html += cur ? '<span class="' + cur + '">' + run + '</span>' : run;
+      html += '\n';
+    }
+    el.innerHTML = html;
+    if (out) out.innerHTML = '<span class="kb">01</span> load ' + Math.min(load, LOADS) + '/' + LOADS
+      + ' &nbsp;&middot;&nbsp; trucks shipped ' + shipped;
+  }
+
+  init();
+
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    for (var i = 0; i < 400; i++) step(1 / 60);
+    render();
+    return;
+  }
+  var last = null;
+  function frame(now){
+    if (last !== null) step(Math.min((now - last) / 1000, 0.05));
+    last = now;
+    render();
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>

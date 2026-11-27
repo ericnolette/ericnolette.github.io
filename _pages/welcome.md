@@ -34,5 +34,8 @@ title: Welcome
 │   │ ▊▊▊▊▊▊▊▊▊▊ │                     │      
 └─────────────────────────────────────┘      
 </pre>
+
+{% include data-haul.html %}
+
 </body>
 </html>

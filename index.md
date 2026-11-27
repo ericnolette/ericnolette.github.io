@@ -49,6 +49,9 @@
 </style>
 </head>
 <body>
+<div style="display:flex;justify-content:center;">
+{% include data-haul.html %}
+</div>
 <div class="container">
   <div>
     <pre>
