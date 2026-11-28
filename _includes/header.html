@@ -118,6 +118,7 @@
 </style>
 </head>
 <body>
+{% include dark-mode.html %}
 <header class="site-header">
   <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
   <div class="time-date">
@@ -153,6 +154,7 @@
       {% endfor %}
     </div>
   </nav>
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">[ dark ]</button>
 </header>
 <script>
   function updateTimeDate() {

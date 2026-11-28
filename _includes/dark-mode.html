@@ -1,0 +1,77 @@
+<script>
+// Runs before the page paints: stored choice wins, otherwise follow the system setting.
+(function(){
+  var KEY = 'theme', root = document.documentElement;
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function stored(){ try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function apply(theme){
+    root.setAttribute('data-theme', theme);
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var next = theme === 'dark' ? 'light' : 'dark';
+    btn.textContent = '[ ' + next + ' ]';
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+  }
+  apply(stored() || (mq && mq.matches ? 'dark' : 'light'));
+
+  document.addEventListener('DOMContentLoaded', function(){
+    apply(root.getAttribute('data-theme'));
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.addEventListener('click', function(){
+      var theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      apply(theme);
+    });
+  });
+  if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
+    if (!stored()) apply(e.matches ? 'dark' : 'light');
+  });
+})();
+</script>
+
+<style>
+.theme-toggle{
+font:inherit;
+color:inherit;
+background:none;
+border:0;
+padding:4px 0;
+margin:0 0 0 15px;
+cursor:pointer;
+white-space:nowrap;
+}
+.theme-toggle:hover{color:#ff9933;}
+.theme-toggle:focus-visible{outline:1px dashed currentColor;outline-offset:3px;}
+@media screen and (max-width:600px){
+/* keep clear of the menu icon, which is absolutely positioned on small screens */
+.theme-toggle{margin-right:52px;}
+}
+
+html[data-theme="dark"]{color-scheme:dark;}
+html[data-theme="dark"] body{color:#C9CDD0;background-color:#080F11;}
+html[data-theme="dark"] a{color:#5DA9FF;}
+html[data-theme="dark"] a:visited{color:#8DBBEE;}
+html[data-theme="dark"] a:hover{color:#E6E8EA;}
+
+html[data-theme="dark"] header,
+html[data-theme="dark"] footer{background:#080F11;}
+html[data-theme="dark"] .site-title,
+html[data-theme="dark"] .site-title:visited,
+html[data-theme="dark"] .time-date,
+html[data-theme="dark"] .time-dot,
+html[data-theme="dark"] .site-nav .page-link{color:#E6E8EA;}
+html[data-theme="dark"] .site-nav{background-color:#080F11;border-color:#1B262B;}
+html[data-theme="dark"] .site-nav .menu-icon > svg{fill:#C9CDD0;}
+html[data-theme="dark"] .loader{--base-color:#080F11;}
+html[data-theme="dark"] .loader::before,
+html[data-theme="dark"] .loader::after{background-color:#C9CDD0;}
+html[data-theme="dark"] .site-footer{border-top-color:#1B262B;}
+
+html[data-theme="dark"] pre,
+html[data-theme="dark"] code{background-color:#0E181B;border-color:#1B262B;}
+html[data-theme="dark"] blockquote{color:#7a7f85;border-left-color:#1B262B;}
+html[data-theme="dark"] table{color:#C9CDD0;border-color:#1B262B;}
+html[data-theme="dark"] table tr:nth-child(even){background-color:#0E181B;}
+html[data-theme="dark"] table th{background-color:#121E22;border-color:#1B262B;}
+html[data-theme="dark"] table td{border-color:#1B262B;}
+</style>

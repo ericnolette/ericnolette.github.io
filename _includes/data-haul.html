@@ -19,12 +19,34 @@ background:transparent !important;
 border:none !important;
 box-shadow:none !important;
 padding:0 !important;
-color:#5B5F61;
 }
-.dh-ascii .sk{color:#CDD1D4;}
-.dh-ascii .gd,.dh-ascii .lb{color:#A1A4A5;}
-.dh-ascii .mc{color:#5B5F61;}
-.dh-ascii .am{color:#2F5E99;}
+.dh-ascii{
+--dh-sky:#CDD1D4;
+--dh-win:#DFE2E5;
+--dh-lit:#E0A12B;
+--dh-lit2:#E9C27A;
+--dh-dim:#A1A4A5;
+--dh-mach:#5B5F61;
+--dh-arm:#2F5E99;
+color:var(--dh-mach);
+}
+html[data-theme="dark"] .dh-ascii{
+--dh-sky:#34464E;
+--dh-win:#141F24;
+--dh-lit:#FFD166;
+--dh-lit2:#9C7F3C;
+--dh-dim:#5B5F61;
+--dh-mach:#A1A4A5;
+--dh-arm:#3D78C2;
+}
+.dh-ascii .sk{color:var(--dh-sky);}
+.dh-ascii .wo{color:var(--dh-win);}
+.dh-ascii .w1{color:var(--dh-lit);}
+.dh-ascii .w2{color:var(--dh-lit2);}
+html[data-theme="dark"] .dh-ascii .w1{text-shadow:0 0 6px rgba(255,209,102,.5);}
+.dh-ascii .gd,.dh-ascii .lb{color:var(--dh-dim);}
+.dh-ascii .mc{color:var(--dh-mach);}
+.dh-ascii .am{color:var(--dh-arm);}
 .dh-ascii .jt,.dh-ascii .bk{color:#5DA9FF;}
 .dh-ascii .bt{color:#48D597;}
 .dh-ascii .st{color:#ff4d5a;}
@@ -38,18 +60,18 @@ color:#5B5F61;
 
                                  <span class="sk">|</span>
          <span class="sk">|</span>                       <span class="jt">o</span>             <span class="sk">|</span>       <span class="sk">__</span>
-         <span class="sk">|</span>                      <span class="am">/</span><span class="sk">|</span><span class="am">\\\\</span>         <span class="sk">|</span>      <span class="sk">|::|</span>
-        <span class="sk">/_\</span>                    <span class="am">/</span>   <span class="sk">|</span>  <span class="am">\\\\</span>    <span class="sk">/_\</span>     <span class="sk">|::|</span>
-       <span class="sk">/</span>   <span class="sk">\</span>                  <span class="am">/</span><span class="sk">|</span>   <span class="sk">|</span>      <span class="am">\\\\</span><span class="sk">___\</span>    <span class="sk">|::|</span>
-      <span class="sk">|</span>     <span class="sk">|</span>     <span class="sk">___</span>       <span class="am">//</span><span class="sk">_|</span>   <span class="sk">|_</span>        <span class="sk">|</span><span class="am">\</span><span class="bk">\</span> <span class="bk">/</span>    <span class="sk">|::|</span>
-      <span class="sk">|</span>     <span class="sk">|</span>    <span class="sk">|</span>   <span class="sk">|</span>     <span class="am">/</span> <span class="sk">|</span>       <span class="sk">|</span>  <span class="sk">_____|</span>   <span class="sk">|</span>    <span class="sk">|::|____</span>
-      <span class="sk">|</span>     <span class="sk">|____|</span>   <span class="sk">|___</span><span class="am">//</span>  <span class="sk">|</span>       <span class="sk">|</span><span class="mc">|</span>       <span class="bt">1111</span>       <span class="mc">|</span>    <span class="sk">|[_]</span> <span class="sk">____</span>
-      <span class="sk">|</span>                 <span class="jt">o</span>  <span class="sk">|_|</span>       <span class="sk">|</span><span class="mc">|</span>       <span class="bt">00</span>         <span class="mc">|</span>    <span class="sk">|___|</span>    <span class="sk">|</span>
-      <span class="sk">|</span>               <span class="mc">.--.</span>            <span class="mc">|</span>                  <span class="mc">|</span> <span class="mc">____</span>        <span class="sk">|</span>
-      <span class="sk">|</span>         <span class="mc">______|[]|______</span>      <span class="mc">|__________________||</span>  <span class="mc">[]\</span>       <span class="sk">|</span>
-      <span class="sk">|</span>        <span class="mc">|</span>  <span class="lb">DIG-01</span>  <span class="lb">::::</span>  <span class="mc">|</span>     <span class="mc">|</span> <span class="lb">DATA</span>  <span class="lb">EXPRESS</span> <span class="lb">-&gt;</span> <span class="mc">||_____\__</span>    <span class="sk">|</span>
-   <span class="bt">101101</span>      <span class="mc">|________________|</span>     <span class="mc">|__________________|________|</span>    <span class="sk">|</span>
-  <span class="bt">01101011</span>     <span class="mc">(@@@@@@@@@@@@@@@@)</span>        <span class="mc">(O)</span>  <span class="mc">(O)</span>            <span class="mc">(O)</span>       <span class="sk">|</span>
+         <span class="sk">|</span>                      <span class="am">/</span><span class="sk">|</span><span class="am">\\\\</span>         <span class="sk">|</span>      <span class="sk">|</span><span class="wo">::</span><span class="sk">|</span>
+        <span class="sk">/_\</span>                    <span class="am">/</span><span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span>  <span class="am">\\\\</span>    <span class="sk">/_\</span>     <span class="sk">|</span><span class="wo">::</span><span class="sk">|</span>
+       <span class="sk">/</span>   <span class="sk">\</span>                  <span class="am">/</span><span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span>      <span class="am">\\\\</span><span class="sk">___\</span>    <span class="sk">|</span><span class="wo">::</span><span class="sk">|</span>
+      <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span>     <span class="sk">___</span>       <span class="am">//</span><span class="sk">_|</span><span class="wo">:</span> <span class="wo">:</span><span class="sk">|_</span>        <span class="sk">|</span><span class="am">\</span><span class="bk">\</span><span class="wo">:</span><span class="bk">/</span>    <span class="sk">|</span><span class="wo">::</span><span class="sk">|</span>
+      <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span>    <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span>     <span class="am">/</span> <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span>  <span class="sk">_____|</span><span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span>    <span class="sk">|</span><span class="wo">::</span><span class="sk">|____</span>
+      <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="sk">|____|</span><span class="wo">:</span> <span class="wo">:</span><span class="sk">|___</span><span class="am">//</span>  <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span><span class="mc">|</span>       <span class="bt">1011</span>       <span class="mc">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="sk">|[_]</span> <span class="sk">____</span>
+      <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span>  <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="jt">o</span> <span class="wo">:</span><span class="sk">|_|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="sk">|</span><span class="mc">|</span>       <span class="bt">10</span>         <span class="mc">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="sk">|___|</span><span class="wo">:</span> <span class="wo">:</span> <span class="sk">|</span>
+      <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span>  <span class="wo">:</span> <span class="wo">:</span> <span class="mc">.--.</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="mc">|</span>                  <span class="mc">|</span> <span class="mc">____</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="sk">|</span>
+      <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="mc">______|[]|______</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="mc">|__________________||</span>  <span class="mc">[]\</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="sk">|</span>
+      <span class="sk">|</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="mc">|</span>  <span class="lb">DIG-01</span>  <span class="lb">::::</span>  <span class="mc">|</span> <span class="wo">:</span> <span class="wo">:</span> <span class="mc">|</span> <span class="lb">DATA</span>  <span class="lb">EXPRESS</span> <span class="lb">-&gt;</span> <span class="mc">||_____\__</span><span class="wo">:</span> <span class="wo">:</span> <span class="sk">|</span>
+   <span class="bt">110111</span><span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="mc">|________________|</span> <span class="wo">:</span> <span class="wo">:</span> <span class="mc">|__________________|________|</span><span class="wo">:</span> <span class="wo">:</span> <span class="sk">|</span>
+  <span class="bt">00011001</span> <span class="wo">:</span> <span class="wo">:</span> <span class="mc">(@@@@@@@@@@@@@@@@)</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span><span class="mc">(O)</span>  <span class="mc">(O)</span>            <span class="mc">(O)</span> <span class="wo">:</span> <span class="wo">:</span> <span class="wo">:</span> <span class="sk">|</span>
 <span class="gd">========================================================================</span></pre>
 </div>
 <div class="dh-readout" id="dh-readout">&nbsp;</div>
@@ -87,11 +109,11 @@ color:#5B5F61;
     '',
     '                                 |',
     '         |                       |             |       __',
-    '         |                      _|_            |      |::|',
-    '        /_\\                    |   |          /_\\     |::|',
-    '       /   \\                   |   |         /___\\    |::|',
-    '      |     |     ___         _|   |_        |   |    |::|',
-    '      |     |    |   |       |       |  _____|   |    |::|____',
+    '         |                      _|_            |      |  |',
+    '        /_\\                    |   |          /_\\     |  |',
+    '       /   \\                   |   |         /___\\    |  |',
+    '      |     |     ___         _|   |_        |   |    |  |',
+    '      |     |    |   |       |       |  _____|   |    |  |____',
     '      |     |____|   |_____  |       | |         |____|       |[_] ____',
     '      |                    |_|       |_|                      |___|    |',
     '      |                                                                |',
@@ -100,10 +122,44 @@ color:#5B5F61;
     '      |                                                                |',
     '      |                                                                |'
   ];
+  // the same buildings as [left wall, right wall, top row], used to place windows
+  var BLD = [[6,12,6], [12,17,9], [17,21,7], [21,27,9], [27,39,10], [29,37,7], [31,35,4],
+             [39,45,8], [45,49,6], [49,54,9], [54,57,3], [57,62,8], [62,66,10], [66,71,9]];
   var PILE = [[4, 4], [3, 6], [2, 8]]; // [x, width], top row first, rows 12..14
 
   // arm poses as [reach, row]; the cab swings between the pile (-1) and the truck (+1)
   var DIG = [17, 13], UP = [14, 4], DUMP = [24, 6];
+
+  // one window per interior cell on alternating columns (432 Park, the thin slab, is all glass)
+  var WIN = [], litN = 0, winT = 0;
+  (function(){
+    for (var y = 0; y < GROUND; y++) for (var x = 0; x < W; x++){
+      var b = null;
+      BLD.forEach(function(c){ if (x > c[0] && x < c[1] && y >= c[2] && (!b || c[2] < b[2])) b = c; });
+      if (!b || (SKY[y][x] || ' ') !== ' ') continue;
+      if (b[1] - b[0] === 3 || (x - b[0]) % 2) WIN.push({ x: x, y: y, k: Math.random() < 0.4 ? 'w1' : 'w2' });
+    }
+    for (var i = WIN.length - 1; i > 0; i--){ // shuffle: the first litN entries are the lit ones
+      var j = Math.floor(Math.random() * (i + 1)), t = WIN[i]; WIN[i] = WIN[j]; WIN[j] = t;
+    }
+  })();
+  function litTarget(){
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? Math.round(WIN.length * 0.62) : 0;
+  }
+  // dark mode: windows come on one by one, then a few keep flicking on and off
+  function lights(dt){
+    var want = litTarget();
+    winT += dt;
+    while (winT >= 0.016){
+      winT -= 0.016;
+      if (litN < want) litN++;
+      else if (litN > want) litN--;
+      else if (want && Math.random() < 0.04){
+        var a = Math.floor(Math.random() * want), b = want + Math.floor(Math.random() * (WIN.length - want));
+        var t = WIN[a]; WIN[a] = WIN[b]; WIN[b] = t;
+      }
+    }
+  }
 
   function bits(n){ var s = ''; for (var i = 0; i < n; i++) s += Math.random() < 0.5 ? '0' : '1'; return s; }
   function bit(){ return Math.random() < 0.5 ? '0' : '1'; }
@@ -146,7 +202,7 @@ color:#5B5F61;
   }
 
   function step(dt){
-    pt += dt; clock += dt;
+    pt += dt; clock += dt; lights(dt);
     var k = Math.min(pt / dur, 1), e = ease(k);
     arm = [a0[0] + (a1[0] - a0[0]) * e, a0[1] + (a1[1] - a0[1]) * e];
     swing = s0 + (s1 - s0) * e;
@@ -205,6 +261,7 @@ color:#5B5F61;
     ch = []; cl = [];
     for (var y = 0; y < H; y++){ ch.push(new Array(W).fill(' ')); cl.push(new Array(W).fill('')); }
     SKY.forEach(function(r, i){ text(0, i, r, 'sk'); });
+    WIN.forEach(function(w, i){ put(w.x, w.y, ':', i < litN ? w.k : 'wo'); });
     for (var x = 0; x < W; x++) put(x, GROUND, '=', 'gd');
 
     pile.forEach(function(s, i){ if (s) text(PILE[i][0], 12 + i, s, 'bt'); });
@@ -253,7 +310,9 @@ color:#5B5F61;
 
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     for (var i = 0; i < 400; i++) step(1 / 60);
-    render();
+    litN = litTarget(); render();
+    if (window.MutationObserver) new MutationObserver(function(){ litN = litTarget(); render(); })
+      .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     return;
   }
   var last = null;

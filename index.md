@@ -46,6 +46,13 @@
   .second-output {
     margin-top: 3px; /* Move the second output down by 2px */
   }
+  html[data-theme="dark"] .container pre {
+    color: #7C8CFF;
+    background-color: transparent;
+  }
+  html[data-theme="dark"] .ascii-animation .white {
+    color: #080F11; /* gaps match the dark background */
+  }
 </style>
 </head>
 <body>
