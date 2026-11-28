@@ -21,6 +21,7 @@ box-shadow:none !important;
 padding:0 !important;
 color:#5B5F61;
 }
+.dh-ascii .sk{color:#CDD1D4;}
 .dh-ascii .gd,.dh-ascii .lb{color:#A1A4A5;}
 .dh-ascii .mc{color:#5B5F61;}
 .dh-ascii .am{color:#2F5E99;}
@@ -33,22 +34,23 @@ color:#5B5F61;
 <div class="dh-fig">
 <div class="dh-caption">Fig 0. Data Haul &mdash; dig, load, ship</div>
 <div class="dh-wrap">
-<pre class="dh-ascii" id="dh-ascii" aria-label="Animated ASCII excavator loading data into a haul truck">
+<pre class="dh-ascii" id="dh-ascii" aria-label="Animated ASCII excavator loading data into a haul truck in front of the New York City skyline">
 
-                                 o
-                                / \\\\
-                               /      \\\\
-                              /           \\\\
-                            //                \\ /
-                           /
-                         //           |       0001       |
-                        o             |       10         |
-                      .--.            |                  | ____
-                ______|[]|______      |__________________||  []\
-    0100       |  DIG-01  ::::  |     | DATA  EXPRESS -&gt; ||_____\__
-   111100      |________________|     |__________________|________|
-  10111111     (@@@@@@@@@@@@@@@@)        (O)  (O)            (O)
-========================================================================</pre>
+                                 <span class="sk">|</span>
+         <span class="sk">|</span>                       <span class="jt">o</span>             <span class="sk">|</span>       <span class="sk">__</span>
+         <span class="sk">|</span>                      <span class="am">/</span><span class="sk">|</span><span class="am">\\\\</span>         <span class="sk">|</span>      <span class="sk">|::|</span>
+        <span class="sk">/_\</span>                    <span class="am">/</span>   <span class="sk">|</span>  <span class="am">\\\\</span>    <span class="sk">/_\</span>     <span class="sk">|::|</span>
+       <span class="sk">/</span>   <span class="sk">\</span>                  <span class="am">/</span><span class="sk">|</span>   <span class="sk">|</span>      <span class="am">\\\\</span><span class="sk">___\</span>    <span class="sk">|::|</span>
+      <span class="sk">|</span>     <span class="sk">|</span>     <span class="sk">___</span>       <span class="am">//</span><span class="sk">_|</span>   <span class="sk">|_</span>        <span class="sk">|</span><span class="am">\</span><span class="bk">\</span> <span class="bk">/</span>    <span class="sk">|::|</span>
+      <span class="sk">|</span>     <span class="sk">|</span>    <span class="sk">|</span>   <span class="sk">|</span>     <span class="am">/</span> <span class="sk">|</span>       <span class="sk">|</span>  <span class="sk">_____|</span>   <span class="sk">|</span>    <span class="sk">|::|____</span>
+      <span class="sk">|</span>     <span class="sk">|____|</span>   <span class="sk">|___</span><span class="am">//</span>  <span class="sk">|</span>       <span class="sk">|</span><span class="mc">|</span>       <span class="bt">1111</span>       <span class="mc">|</span>    <span class="sk">|[_]</span> <span class="sk">____</span>
+      <span class="sk">|</span>                 <span class="jt">o</span>  <span class="sk">|_|</span>       <span class="sk">|</span><span class="mc">|</span>       <span class="bt">00</span>         <span class="mc">|</span>    <span class="sk">|___|</span>    <span class="sk">|</span>
+      <span class="sk">|</span>               <span class="mc">.--.</span>            <span class="mc">|</span>                  <span class="mc">|</span> <span class="mc">____</span>        <span class="sk">|</span>
+      <span class="sk">|</span>         <span class="mc">______|[]|______</span>      <span class="mc">|__________________||</span>  <span class="mc">[]\</span>       <span class="sk">|</span>
+      <span class="sk">|</span>        <span class="mc">|</span>  <span class="lb">DIG-01</span>  <span class="lb">::::</span>  <span class="mc">|</span>     <span class="mc">|</span> <span class="lb">DATA</span>  <span class="lb">EXPRESS</span> <span class="lb">-&gt;</span> <span class="mc">||_____\__</span>    <span class="sk">|</span>
+   <span class="bt">101101</span>      <span class="mc">|________________|</span>     <span class="mc">|__________________|________|</span>    <span class="sk">|</span>
+  <span class="bt">01101011</span>     <span class="mc">(@@@@@@@@@@@@@@@@)</span>        <span class="mc">(O)</span>  <span class="mc">(O)</span>            <span class="mc">(O)</span>       <span class="sk">|</span>
+<span class="gd">========================================================================</span></pre>
 </div>
 <div class="dh-readout" id="dh-readout">&nbsp;</div>
 </div>
@@ -79,6 +81,24 @@ color:#5B5F61;
     '|                  ||_____\\__',
     '|__________________|________|',
     '   (O)  (O)            (O)  '
+  ];
+  // NYC skyline backdrop, rows 0..14: One WTC, Empire State, Chrysler, 432 Park
+  var SKY = [
+    '',
+    '                                 |',
+    '         |                       |             |       __',
+    '         |                      _|_            |      |::|',
+    '        /_\\                    |   |          /_\\     |::|',
+    '       /   \\                   |   |         /___\\    |::|',
+    '      |     |     ___         _|   |_        |   |    |::|',
+    '      |     |    |   |       |       |  _____|   |    |::|____',
+    '      |     |____|   |_____  |       | |         |____|       |[_] ____',
+    '      |                    |_|       |_|                      |___|    |',
+    '      |                                                                |',
+    '      |                                                                |',
+    '      |                                                                |',
+    '      |                                                                |',
+    '      |                                                                |'
   ];
   var PILE = [[4, 4], [3, 6], [2, 8]]; // [x, width], top row first, rows 12..14
 
@@ -168,6 +188,10 @@ color:#5B5F61;
     ch[y][x] = c; cl[y][x] = k || '';
   }
   function text(x, y, s, k){ for (var i = 0; i < s.length; i++) if (s[i] !== ' ') put(x + i, y, s[i], k); }
+  function sprite(x, y, s, k){
+    var a = s.search(/\S/), b = s.search(/\s*$/);
+    for (var i = a; a >= 0 && i < b; i++) put(x + i, y, s[i], s[i] === ' ' ? '' : k);
+  }
   function rod(p, q, k){
     var dx = q[0] - p[0], dy = q[1] - p[1];
     var c = Math.abs(dx) < Math.abs(dy) * 0.5 ? '|'
@@ -180,6 +204,7 @@ color:#5B5F61;
   function render(){
     ch = []; cl = [];
     for (var y = 0; y < H; y++){ ch.push(new Array(W).fill(' ')); cl.push(new Array(W).fill('')); }
+    SKY.forEach(function(r, i){ text(0, i, r, 'sk'); });
     for (var x = 0; x < W; x++) put(x, GROUND, '=', 'gd');
 
     pile.forEach(function(s, i){ if (s) text(PILE[i][0], 12 + i, s, 'bt'); });
@@ -188,14 +213,14 @@ color:#5B5F61;
     var tx = Math.round(truckX), moving = truckX !== TRUCK_HOME;
     TRUCK.forEach(function(r, i){
       if (i === 6 && moving && tx % 2) r = r.replace(/O/g, 'o');
-      text(tx, 8 + i, r, 'mc');
+      sprite(tx, 8 + i, r, 'mc');
     });
     text(tx + 2, 12, 'DATA  EXPRESS ->', 'lb');
     fill.forEach(function(s, i){ text(tx + 1, 10 - i, s, 'bt'); });
     if (fill.length >= LOADS) text(tx + 6, 7, '[ FULL ]', Math.floor(clock * 2) % 2 ? 'sd' : 'st');
     falling.forEach(function(f){ put(f.x, f.y, f.c, 'bt'); });
 
-    EXC.forEach(function(r, i){ text(14, 10 + i, r, 'mc'); });
+    EXC.forEach(function(r, i){ sprite(14, 10 + i, r, 'mc'); });
     text(18, 12, 'DIG-01', 'lb'); text(26, 12, '::::', 'lb');
 
     var e = elbowRY(), ep = [PIV[0] + swing * e[0], e[1]], tp = tipXY();
